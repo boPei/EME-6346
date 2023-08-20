@@ -2,12 +2,14 @@
   <div class="home" >
         <div class="title">
           <div style="font-size: 50px;margin-top: 10%;font-weight: 600;">
+            <el-link href='https://clauswilke.com/dataviz/' target="" :underline="false">
             Data Visualization Fundamentals
+          </el-link>
           </div>
           <div style="margin-top: 10%;font-size: 25px;font-weight: 500;">
             The learning materials and sections
              in this website 
-            are based on the book of “Fundamentals of Data Visualization”. 
+            are based on the book of “Fundamentals of Data Visualization”. <br>
             We really appreciate author’s insights 
             in terms of generating meaningful visualizations 
             for facilitating information convey. 
@@ -24,14 +26,11 @@
   </div>
 </template>
 <script>
-import { swiper, swiperSlide } from "vue-awesome-swiper";
 import * as echarts from "echarts";
 
 export default {
   name: "HelloWorld",
   components: {
-    swiper,
-    swiperSlide,
     echarts
   },
   data() {
@@ -134,6 +133,9 @@ export default {
 /* .el-header {
   position: absolute;
 } */
+::v-deep .el-link{
+  font-size: 50px !important;
+}
 .swiper-slide {
   font-size: 24px;
   // text-align: center;
@@ -153,8 +155,8 @@ export default {
 #mychart{
   margin-top: 5%;
   float: left;
-  width:100%;
-  height: 250px;
+  width:90%;
+  height: 200px;
 }
 //经典案例
 .title {

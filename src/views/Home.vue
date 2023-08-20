@@ -1,22 +1,23 @@
 <template>
-  <div class="home" v-loading="loading">
+  <div class="home" >
     <!-- <swiper id="swiperBox" v-bind:options="swiperOption" ref="mySwiper">
       <swiper-slide class="swiper-slide slide-one"> -->
         
         <div class="title">
+          <el-link href='https://clauswilke.com/dataviz/' target="" :underline="false">
           <h1
           style="padding-top: 0%;">
           Data Visualization Fundamentals</h1>
-          <h5>
-            The learning materials and sections<br>
+        </el-link>
+          <div>
+            The learning materials and sections
              in this website 
             are based on the book of “Fundamentals of Data Visualization”. <br>
-            We really appreciate author’s insights <br>
+            We really appreciate author’s insights
             in terms of generating meaningful visualizations 
-            for facilitating information convey. <br>
-            Corresponding to the R version codes, <br>
-            this website provide the Python version.
-          </h5>
+            for facilitating information convey.
+            In this website, we provide python version implementations of the examples in the book.
+          </div>
           <br>
           <el-button round style="width: 200px;height: 70px;font-size: x-large;" @click="click()"><b>Start</b></el-button>
         </div>
@@ -28,15 +29,11 @@
   </div>
 </template>
 <script>
-import { swiper, swiperSlide } from "vue-awesome-swiper";
 import * as echarts from "echarts";
 
 export default {
   name: "HelloWorld",
   components: {
-    swiper,
-    swiperSlide,
-    echarts
   },
   data() {
     return {
@@ -115,9 +112,6 @@ export default {
       return this.$refs.mySwiper.swiper;
     }
   },
-  mounted() {
-    // this.initEcharts();
-  }
 };
 </script>
  
@@ -125,6 +119,9 @@ export default {
 /* .el-header {
   position: absolute;
 } */
+.el-link{
+  font-size: 40px !important;
+}
 .swiper-slide {
   font-size: 24px;
   // text-align: center;
@@ -153,7 +150,6 @@ export default {
     float:left;
     margin-left: 5%;
     width:40%;
-    margin-top: 3%;
     font-size: xx-large;
     p {
       font-size: 40px;

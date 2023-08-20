@@ -3,7 +3,7 @@
     <el-container>
       <el-header>
         <div class="logo" v-show="isPC">
-          <el-link href="https://clauswilke.com/dataviz/" target="" :underline="false">
+          <el-link :href="logopath" target="" :underline="false">
             <b>
               Data Visualization <br>
               Fundamentals
@@ -12,7 +12,7 @@
         </div>
 
         <div class="logo" v-show="!isPC">
-          <el-link href="https://clauswilke.com/dataviz/" target="" :underline="false">
+          <el-link :href="logopath" target="" :underline="false">
             Data Visualization<br>
              Fundamentals
           </el-link>
@@ -20,7 +20,6 @@
 
         <div style="height: 100%;width: 650px;">
         <el-menu
-          unique-opened = true
           text-color="#000000"
           :default-active="defaultActive"
           mode="horizontal"
@@ -68,9 +67,7 @@
       <el-menu
       default-active="2"
       class="el-menu-vertical-demo"
-      :router="router"
-      @open="handleOpen"
-      @close="handleClose">
+      :router="router">
       <el-menu-item index="/Syllabus">
         <span slot="title">Syllabus</span>
       </el-menu-item>
@@ -140,7 +137,10 @@ export default {
       router: true,
       defaultActive: "/",
       isShow: false,
-      isPC:true
+      isPC:true,
+      isIndex:true,
+      logopath:'https://bopei.github.io/data-viz-fundamentals/#/',
+      unique_opened:true
     };
   },
   methods: {
@@ -155,9 +155,21 @@ export default {
         } else {
         this.isPC = true
       }
+    },
+    JudgeIndex(){
+        console.log(window.location.href)
+        var urlpath = window.location.href
+        var path_element = urlpath.split('/')
+        this.isIndex = !(path_element[path_element.length-1].length > 1)
+        if(this.isIndex){
+          this.logopath = 'https://clauswilke.com/dataviz/'
+        }else{
+          this.logopath = 'https://bopei.github.io/data-viz-fundamentals/#/'
+        }
     }
   },
   mounted(){
+    // this.JudgeIndex();
     this.JudgePC();
     console.log(this.isPC);
   }

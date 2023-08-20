@@ -17,7 +17,6 @@
   </template>
   
   <script>
-  import pdf from 'vue-pdf'
   export default {
     data() {
       return {
@@ -25,7 +24,6 @@
       };
     },
     components: {
-      pdf
     }
     
   };
